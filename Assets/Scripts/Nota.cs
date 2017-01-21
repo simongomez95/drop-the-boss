@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Nota : MonoBehaviour {
 
-	public int sprite;
+	public int tipo;
 	public int id;
 	public Sprite sprite1;
 	public Sprite sprite2;
@@ -28,8 +28,9 @@ public class Nota : MonoBehaviour {
 		
 	}
 
-	public void setSprite(int sprite) {
-		switch(sprite) {
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
+		switch(tipo) {
 			case 1: {
 				this.GetComponent<SpriteRenderer>().sprite = this.sprite1;
 				break;
