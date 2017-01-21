@@ -33,17 +33,16 @@ public class Disparo : MonoBehaviour {
 		timer += Time.deltaTime;
 		foreach (int tiempoNota in listaTiempos)
 		{
-			Debug.Log(this.timer);
-			if((this.timer - 0.1 < tiempoNota ) && (this.timer + 0.1 > tiempoNota)) {
+			if((this.timer - 0.05 < tiempoNota ) && (this.timer + 0.05 > tiempoNota)) {
 				lanzaNotas(this.notas[tiempoNota]);
 				listaTiempos.Remove(tiempoNota);
 			}
 		}
 	}
 
-	private void lanzaNotas(int spriteNota){
+	private void lanzaNotas(int tipoNota){
 		GameObject instantiatedProjectile = Instantiate(nota,transform.position, transform.rotation ) as GameObject;
 		Nota scriptNota = (Nota) instantiatedProjectile.GetComponent(typeof(Nota));
-		scriptNota.setSprite(spriteNota);
+		scriptNota.setTipo(tipoNota);
 	}
 }
