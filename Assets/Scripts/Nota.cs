@@ -10,10 +10,17 @@ public class Nota : MonoBehaviour {
 	public Sprite sprite2;
 	public Sprite sprite3;
 	public Sprite sprite4;
+	public int speed;
+	private Rigidbody rb;
 
 	// Use this for initialization
 	void Start () {
 		
+	}
+
+	void Awake() {
+		rb = this.GetComponent<Rigidbody>();
+		rb.velocity = transform.TransformDirection(new Vector3(speed, 0f,0f));
 	}
 	
 	// Update is called once per frame
@@ -21,7 +28,7 @@ public class Nota : MonoBehaviour {
 		
 	}
 
-	void setSprite(int sprite) {
+	public void setSprite(int sprite) {
 		switch(sprite) {
 			case 1: {
 				this.GetComponent<SpriteRenderer>().sprite = this.sprite1;
