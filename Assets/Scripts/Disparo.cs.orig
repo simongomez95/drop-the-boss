@@ -10,13 +10,15 @@ public class Disparo : MonoBehaviour {
 	public float speed;
 	private float timer;
 	private List<int> listaTiempos;
-	private Dictionary<int, int> notas;
+<<<<<<< HEAD
+	private Dictionary<int, string> notas;
+=======
 	public static Disparo instancia;
 
 	void Awake(){
 		instancia = this;
 	}
-	
+>>>>>>> e3224d51f2816f070e8cd32544db909d49cf2b99
 	void Start () {
 		this.notas = new Dictionary<int, int>();
 		notas.Add(2, 1);
