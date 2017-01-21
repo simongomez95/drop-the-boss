@@ -35,7 +35,8 @@ public class CampoFuerza : MonoBehaviour {
 
 		// Cargar todas las notas
 		for (int i = 0; i < audioNotas.Length; i++) {
-    		audioNotas[i] = Resources.Load<AudioClip>("Sounds/Nota" + i);
+			int num = i+1;
+    		audioNotas[i] = Resources.Load<AudioClip>("Sounds/Nota" + num);
 		}
 	}
 
