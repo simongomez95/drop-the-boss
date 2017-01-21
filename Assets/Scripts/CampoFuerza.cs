@@ -13,8 +13,8 @@ public class CampoFuerza : MonoBehaviour {
 	void Start () {
 		this.conteoNotas = 0;
 		this.audioNotas = new AudioClip[4];
-		this.sonidoPeye = new Resources.Load<AudioClip>("Sounds/peye");
-		this.sonidoPeye = new Resources.Load<AudioClip>("Sounds/ouch");
+		this.sonidoPeye =  Resources.Load<AudioClip>("Sounds/peye");
+		this.sonidoPeye =  Resources.Load<AudioClip>("Sounds/ouch");
 		for (int i = 0; i < audioNotas.Length; i++)
 		{
     		audioNotas[i] = Resources.Load<AudioClip>("Sounds/" + i);
@@ -28,7 +28,7 @@ public class CampoFuerza : MonoBehaviour {
 
 	void OnTriggerStay2D (Collider2D coll) {
 		int tipoNotaCol = coll.gameObject.GetComponent<Nota>().tipo;
-		if(Input.GetKey("f")  {
+		if(Input.GetKey("f"))  {
 			if(tipoNotaCol == 1){
 				this.GetComponent<AudioSource>().PlayOneShot(this.audioNotas[conteoNotas]);
 				this.conteoNotas++;
@@ -39,7 +39,7 @@ public class CampoFuerza : MonoBehaviour {
 				Destroy(coll.gameObject);
 			}
 		}
-		if(Input.GetKey("g")  {
+		if(Input.GetKey("g"))  {
 			if(tipoNotaCol == 2){
 				this.GetComponent<AudioSource>().PlayOneShot(this.audioNotas[conteoNotas]);
 				this.conteoNotas++;
@@ -50,7 +50,7 @@ public class CampoFuerza : MonoBehaviour {
 				Destroy(coll.gameObject);
 			}
 		}
-		if(Input.GetKey("h")  {
+		if(Input.GetKey("h"))  {
 			if(tipoNotaCol == 3){
 				this.GetComponent<AudioSource>().PlayOneShot(this.audioNotas[conteoNotas]);
 				this.conteoNotas++;
@@ -61,7 +61,7 @@ public class CampoFuerza : MonoBehaviour {
 				Destroy(coll.gameObject);
 			}
 		}
-		if(Input.GetKey("j")  {
+		if(Input.GetKey("j"))  {
 			if(tipoNotaCol == 4){
 				this.GetComponent<AudioSource>().PlayOneShot(this.audioNotas[conteoNotas]);
 				this.conteoNotas++;
