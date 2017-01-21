@@ -10,7 +10,7 @@ public class Nota : MonoBehaviour {
 	public Sprite sprite2;
 	public Sprite sprite3;
 	public Sprite sprite4;
-	public int speed;
+	public float speed;
 	private Rigidbody2D rb;
 
 	// Use this for initialization
