@@ -13,9 +13,9 @@ public class Disparo : MonoBehaviour {
 	void Start () {
 		Dictionary<int, string> notas = new Dictionary<int, string>();
 		notas.Add(2, "nota1");
-		notas.Add(20, "nota1");
-		notas.Add(3, "nota1");
-		notas.Add(10, "nota1");
+		notas.Add(20, "nota2");
+		notas.Add(3, "nota3");
+		notas.Add(10, "nota4");
 		listaTiempos = new List<int>(notas.Keys);
 		listaTiempos.Sort();
 		this.timer = 0;
@@ -28,7 +28,7 @@ public class Disparo : MonoBehaviour {
 		{
 			Debug.Log(this.timer);
 			Debug.Log((this.timer < tiempoNota + 1/2) && (this.timer > tiempoNota - 1/2));
-			if((this.timer - 0.798722 < tiempoNota ) && (this.timer + 0.798722 > tiempoNota)) {
+			if((this.timer - 0.1 < tiempoNota ) && (this.timer + 0.1 > tiempoNota)) {
 				lanzaNotas();
 			}
 		}
