@@ -35,30 +35,30 @@ public class CampoFuerza : MonoBehaviour {
 		int tipoNotaCol = coll.gameObject.GetComponent<Nota>().tipo;
 		if(Input.GetKey("f"))  {
 			if(tipoNotaCol == 1){
-				teclaCorrecta();
+				teclaCorrecta(coll);
 			} else {
-				teclaIncorrecta();
+				teclaIncorrecta(coll);
 			}
 		}
 		if(Input.GetKey("g"))  {
 			if(tipoNotaCol == 2){
-				teclaCorrecta();
+				teclaCorrecta(coll);
 			} else {
-				teclaIncorrecta();
+				teclaIncorrecta(coll);
 			}
 		}
 		if(Input.GetKey("h"))  {
 			if(tipoNotaCol == 3){
-				teclaCorrecta();
+				teclaCorrecta(coll);
 			} else {
-				teclaIncorrecta();
+				teclaIncorrecta(coll);
 			}
 		}
 		if(Input.GetKey("j"))  {
 			if(tipoNotaCol == 4){
-				teclaCorrecta();
+				teclaCorrecta(coll);
 			} else {
-				teclaIncorrecta();
+				teclaIncorrecta(coll);
 			}
 		}
 	} 
@@ -70,14 +70,14 @@ public class CampoFuerza : MonoBehaviour {
 		Destroy(coll.gameObject);
 	}
 
-	void teclaCorrecta()
+	void teclaCorrecta(Collider2D coll)
 	{
 		this.GetComponent<AudioSource>().PlayOneShot(this.audioNotas[this.conteoNotas]);
 		this.conteoNotas++;
 		Destroy(coll.gameObject);
 	}
 
-	void teclaIncorrecta() 
+	void teclaIncorrecta(Collider2D coll) 
 	{
 		this.GetComponent<AudioSource>().PlayOneShot(this.sonidoPeye);
 		this.conteoNotas++;
