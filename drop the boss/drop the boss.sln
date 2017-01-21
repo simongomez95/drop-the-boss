@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{48B8097C-EF35-F5BA-C7E5-349418C2939C}") = "drop the boss", "Assembly-CSharp.csproj", "{01D60806-1B1C-33C3-CBCA-66C88A861DA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01D60806-1B1C-33C3-CBCA-66C88A861DA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01D60806-1B1C-33C3-CBCA-66C88A861DA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01D60806-1B1C-33C3-CBCA-66C88A861DA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01D60806-1B1C-33C3-CBCA-66C88A861DA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
