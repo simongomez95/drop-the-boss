@@ -30,6 +30,7 @@ public class Disparo : MonoBehaviour {
 			Debug.Log((this.timer < tiempoNota + 1/2) && (this.timer > tiempoNota - 1/2));
 			if((this.timer - 0.1 < tiempoNota ) && (this.timer + 0.1 > tiempoNota)) {
 				lanzaNotas();
+				listaTiempos.Remove(tiempoNota);
 			}
 		}
 	}
