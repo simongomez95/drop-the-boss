@@ -49,7 +49,7 @@ public class DestruirNotas : MonoBehaviour {
 				destruirMi = true;
 				destruirRe = true;
 			}
-		}else if(Input.GetKeyUp("h")){
+		}else if(Input.GetKey("h")){
 			re = GameObject.FindWithTag  ("re");
 			if (re != null) {
 				if(!destruirRe){
@@ -61,7 +61,7 @@ public class DestruirNotas : MonoBehaviour {
 				destruirMi = true;
 				destruirFa = true;
 			}
-		} else 	if(Input.GetKeyUp("j")){
+		} else 	if(Input.GetKey("j")){
 			mi = GameObject.FindWithTag  ("mi");
 			if (mi != null) {
 				if(!destruirMi){

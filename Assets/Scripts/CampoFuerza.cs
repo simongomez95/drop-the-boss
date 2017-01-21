@@ -8,6 +8,7 @@ public class CampoFuerza : MonoBehaviour {
 	private AudioClip[] audioNotas;
 	private AudioClip sonidoPeye;
 	private AudioClip sonidoOuch;
+	private AudioClip pista;
 	private int notaCorrecta;
 	private int vidas;
 	public Sprite[] luz;
@@ -18,18 +19,23 @@ public class CampoFuerza : MonoBehaviour {
 	float y;
 	// Use this for initialization
 	void Start () {
+		
+	}
+
+	void Awake() {
+
+		iEscudo = 0;
 		this.vidas = 3;
 		this.conteoNotas = 0;
-		this.audioNotas = new AudioClip[4];
+		this.audioNotas = new AudioClip[32];
 		this.escudo = false;
 
 		// Cargar sonidos de fail
-		this.sonidoPeye =  Resources.Load<AudioClip>("Sounds/peye");
-		this.sonidoPeye =  Resources.Load<AudioClip>("Sounds/ouch");
+		this.sonidoPeye =  Resources.Load<AudioClip>("Sounds/Nota_erronea");
 
 		// Cargar todas las notas
 		for (int i = 0; i < audioNotas.Length; i++) {
-    		audioNotas[i] = Resources.Load<AudioClip>("Sounds/" + i);
+    		audioNotas[i] = Resources.Load<AudioClip>("Sounds/Nota" + i);
 		}
 	}
 
@@ -42,7 +48,7 @@ public class CampoFuerza : MonoBehaviour {
 			Time.timeScale = 0;
 		}
 
-		if(notaCorrecta == 2){
+		if(notaCorrecta == 8){
 			if (iEscudo < 2) {
 				escudo = true;
 			} else {
@@ -57,28 +63,28 @@ public class CampoFuerza : MonoBehaviour {
 
 	void OnTriggerStay2D (Collider2D coll) {
 		int tipoNotaCol = coll.gameObject.GetComponent<Nota>().tipo;
-		if(Input.GetKeyUp("f"))  {
+		if(Input.GetKey("f"))  {
 			if(tipoNotaCol == 1){
 				teclaCorrecta(coll);
 			} else {
 				teclaIncorrecta(coll);
 			}
 		}
-		if(Input.GetKeyUp("g"))  {
+		else if(Input.GetKey("g"))  {
 			if(tipoNotaCol == 2){
 				teclaCorrecta(coll);
 			} else {
 				teclaIncorrecta(coll);
 			}
 		}
-		if(Input.GetKeyUp("h"))  {
+		else if(Input.GetKey("h"))  {
 			if(tipoNotaCol == 3){
 				teclaCorrecta(coll);
 			} else {
 				teclaIncorrecta(coll);
 			}
 		}
-		if(Input.GetKeyUp("j"))  {
+		else if(Input.GetKey("j"))  {
 			if(tipoNotaCol == 4){
 				teclaCorrecta(coll);
 			} else {
@@ -89,7 +95,7 @@ public class CampoFuerza : MonoBehaviour {
 
 	void OnTriggerExit2D (Collider2D coll) {
 		
-		this.GetComponent<AudioSource>().PlayOneShot(this.sonidoOuch);
+		this.GetComponent<AudioSource>().PlayOneShot(this.sonidoPeye);
 		this.conteoNotas++;
 		if(!escudo){
 			print ("entre2");
