@@ -28,6 +28,7 @@ public class DestruirNotas : MonoBehaviour {
 				print ("entre");
 				if(!destruirFa){
 					fa.GetComponent<Rigidbody> ().AddForce (new Vector3(Disparo.instancia.speed*-100,0f,0f));
+					fa.tag = "Untagged";
 					points++;
 				}
 			} else {
