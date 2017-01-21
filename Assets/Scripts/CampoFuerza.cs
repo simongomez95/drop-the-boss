@@ -8,15 +8,20 @@ public class CampoFuerza : MonoBehaviour {
 	private AudioClip[] audioNotas;
 	private AudioClip sonidoPeye;
 	private AudioClip sonidoOuch;
+	private int vidas;
 
 	// Use this for initialization
 	void Start () {
+		this.vidas = 3;
 		this.conteoNotas = 0;
 		this.audioNotas = new AudioClip[4];
+
+		// Cargar sonidos de fail
 		this.sonidoPeye =  Resources.Load<AudioClip>("Sounds/peye");
 		this.sonidoPeye =  Resources.Load<AudioClip>("Sounds/ouch");
-		for (int i = 0; i < audioNotas.Length; i++)
-		{
+
+		// Cargar todas las notas
+		for (int i = 0; i < audioNotas.Length; i++) {
     		audioNotas[i] = Resources.Load<AudioClip>("Sounds/" + i);
 		}
 	}
@@ -30,46 +35,30 @@ public class CampoFuerza : MonoBehaviour {
 		int tipoNotaCol = coll.gameObject.GetComponent<Nota>().tipo;
 		if(Input.GetKey("f"))  {
 			if(tipoNotaCol == 1){
-				this.GetComponent<AudioSource>().PlayOneShot(this.audioNotas[conteoNotas]);
-				this.conteoNotas++;
-				Destroy(coll.gameObject);
+				teclaCorrecta();
 			} else {
-				this.GetComponent<AudioSource>().PlayOneShot(this.sonidoPeye);
-				this.conteoNotas++;
-				Destroy(coll.gameObject);
+				teclaIncorrecta();
 			}
 		}
 		if(Input.GetKey("g"))  {
 			if(tipoNotaCol == 2){
-				this.GetComponent<AudioSource>().PlayOneShot(this.audioNotas[conteoNotas]);
-				this.conteoNotas++;
-				Destroy(coll.gameObject);
+				teclaCorrecta();
 			} else {
-				this.GetComponent<AudioSource>().PlayOneShot(this.sonidoPeye);
-				this.conteoNotas++;
-				Destroy(coll.gameObject);
+				teclaIncorrecta();
 			}
 		}
 		if(Input.GetKey("h"))  {
 			if(tipoNotaCol == 3){
-				this.GetComponent<AudioSource>().PlayOneShot(this.audioNotas[conteoNotas]);
-				this.conteoNotas++;
-				Destroy(coll.gameObject);
+				teclaCorrecta();
 			} else {
-				this.GetComponent<AudioSource>().PlayOneShot(this.sonidoPeye);
-				this.conteoNotas++;
-				Destroy(coll.gameObject);
+				teclaIncorrecta();
 			}
 		}
 		if(Input.GetKey("j"))  {
 			if(tipoNotaCol == 4){
-				this.GetComponent<AudioSource>().PlayOneShot(this.audioNotas[conteoNotas]);
-				this.conteoNotas++;
-				Destroy(coll.gameObject);
+				teclaCorrecta();
 			} else {
-				this.GetComponent<AudioSource>().PlayOneShot(this.sonidoPeye);
-				this.conteoNotas++;
-				Destroy(coll.gameObject);
+				teclaIncorrecta();
 			}
 		}
 	} 
@@ -77,6 +66,22 @@ public class CampoFuerza : MonoBehaviour {
 	void OnTriggerExit2D (Collider2D coll) {
 		this.GetComponent<AudioSource>().PlayOneShot(this.sonidoOuch);
 		this.conteoNotas++;
+		this.vidas--;
+		Destroy(coll.gameObject);
+	}
+
+	void teclaCorrecta()
+	{
+		this.GetComponent<AudioSource>().PlayOneShot(this.audioNotas[this.conteoNotas]);
+		this.conteoNotas++;
+		Destroy(coll.gameObject);
+	}
+
+	void teclaIncorrecta() 
+	{
+		this.GetComponent<AudioSource>().PlayOneShot(this.sonidoPeye);
+		this.conteoNotas++;
+		this.vidas--;
 		Destroy(coll.gameObject);
 	}
 	
