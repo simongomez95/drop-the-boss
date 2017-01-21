@@ -23,17 +23,19 @@ public class CampoFuerza : MonoBehaviour {
 	}
 
 	void Awake() {
-		this.vidas = 10000;
+
+		iEscudo = 0;
+		this.vidas = 3;
 		this.conteoNotas = 0;
 		this.audioNotas = new AudioClip[32];
 		this.escudo = false;
 
 		// Cargar sonidos de fail
-		this.sonidoPeye =  Resources.Load<AudioClip>("Sounds/peye");
+		this.sonidoPeye =  Resources.Load<AudioClip>("Sounds/Nota_erronea");
 
 		// Cargar todas las notas
 		for (int i = 0; i < audioNotas.Length; i++) {
-    		audioNotas[i] = Resources.Load<AudioClip>("Sounds/Nota " + i);
+    		audioNotas[i] = Resources.Load<AudioClip>("Sounds/Nota" + i);
 		}
 	}
 
@@ -46,7 +48,7 @@ public class CampoFuerza : MonoBehaviour {
 			Time.timeScale = 0;
 		}
 
-		if(notaCorrecta == 2){
+		if(notaCorrecta == 8){
 			if (iEscudo < 2) {
 				escudo = true;
 			} else {
@@ -68,21 +70,21 @@ public class CampoFuerza : MonoBehaviour {
 				teclaIncorrecta(coll);
 			}
 		}
-		if(Input.GetKey("g"))  {
+		else if(Input.GetKey("g"))  {
 			if(tipoNotaCol == 2){
 				teclaCorrecta(coll);
 			} else {
 				teclaIncorrecta(coll);
 			}
 		}
-		if(Input.GetKey("h"))  {
+		else if(Input.GetKey("h"))  {
 			if(tipoNotaCol == 3){
 				teclaCorrecta(coll);
 			} else {
 				teclaIncorrecta(coll);
 			}
 		}
-		if(Input.GetKey("j"))  {
+		else if(Input.GetKey("j"))  {
 			if(tipoNotaCol == 4){
 				teclaCorrecta(coll);
 			} else {
