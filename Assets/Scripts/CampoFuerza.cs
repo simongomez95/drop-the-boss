@@ -42,7 +42,7 @@ public class CampoFuerza : MonoBehaviour {
 			Time.timeScale = 0;
 		}
 
-		if(notaCorrecta == 2){
+		if(notaCorrecta == 8){
 			if (iEscudo < 2) {
 				escudo = true;
 			} else {
