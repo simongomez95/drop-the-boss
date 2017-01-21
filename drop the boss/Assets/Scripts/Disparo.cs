@@ -5,17 +5,23 @@ using UnityEngine;
 public class Disparo : MonoBehaviour {
 
 
-	public bool algo;
+	public bool algo = true;
 	public Rigidbody nota;
 	public float speed;
+	public float tiempo;
 	void Start () {
 		InvokeRepeating ("lanzaNotas",2f,5f);
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-//		if(algo){
-//			Invoke ("lanzaNotas",2f);
+//		tiempo += Time.deltaTime;
+//		if(tiempo > 5.5f && tiempo < 5.6f){
+//			if(algo){
+//				algo = false;
+//				Invoke ("lanzaNotas",0.1f);
+//			}
 //		}
 	}
 
