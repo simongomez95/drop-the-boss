@@ -27,7 +27,7 @@ public class DestruirNotas : MonoBehaviour {
 			if (fa != null) {
 				print ("entre");
 				if(!destruirFa){
-					fa.GetComponent<Rigidbody> ().AddForce (new Vector3(Disparo.instancia.speed*-100,0f,0f));
+					fa.GetComponent<Rigidbody2D> ().AddForce (new Vector2(Disparo.instancia.speed*-100,0f));
 					points++;
 				}
 			} else {

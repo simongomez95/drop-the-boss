@@ -11,7 +11,7 @@ public class Nota : MonoBehaviour {
 	public Sprite sprite3;
 	public Sprite sprite4;
 	public int speed;
-	private Rigidbody rb;
+	private Rigidbody2D rb;
 
 	// Use this for initialization
 	void Start () {
@@ -19,8 +19,8 @@ public class Nota : MonoBehaviour {
 	}
 
 	void Awake() {
-		rb = this.GetComponent<Rigidbody>();
-		rb.velocity = transform.TransformDirection(new Vector3(speed, 0f,0f));
+		rb = this.GetComponent<Rigidbody2D>();
+		rb.velocity = new Vector2(speed, 0f);
 	}
 	
 	// Update is called once per frame
