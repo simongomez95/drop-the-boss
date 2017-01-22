@@ -7,6 +7,7 @@ public class progreso : MonoBehaviour {
 	float tiempo;
 	public float vel;
 	public GameObject silbon;
+	public GameObject creditos;
 	// Use this for initialization
 	void Start () {
 		
@@ -17,9 +18,10 @@ public class progreso : MonoBehaviour {
 		tiempo += Time.deltaTime;
 		print (tiempo);
 		if (tiempo < 82.1f) {
-			transform.position = new Vector2 (transform.position.x + vel * Time.deltaTime, transform.position.y);
+			transform.position = new Vector3 (transform.position.x + vel * Time.deltaTime, transform.position.y, -1f);
 		} else {
-			transform.position = new Vector2 (transform.position.x, transform.position.y);
+			transform.position = new Vector3 (transform.position.x, transform.position.y, -1f);
+			creditos.SetActive(true);
 		}
 		if(tiempo > 32.2f) {
 			silbon.SetActive(true);
