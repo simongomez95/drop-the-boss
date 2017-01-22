@@ -18,7 +18,7 @@ public class CampoFuerza : MonoBehaviour {
 	bool escudo;
 	int iEscudo;
 	float y;
-
+	public Image restar;
 	private GameObject[] notasDentro;
 
 
@@ -30,7 +30,7 @@ public class CampoFuerza : MonoBehaviour {
 	void Awake() {
 		notasDentro = new GameObject[2];
 		iEscudo = 0;
-		this.vidas = 300;
+		this.vidas = 3;
 		this.conteoNotas = 0;
 		this.audioNotas = new AudioClip[32];
 		this.escudo = false;
@@ -59,6 +59,7 @@ public class CampoFuerza : MonoBehaviour {
 		} else {
 			farol.gameObject.SetActive (false);
 			Time.timeScale = 0;
+			restar.gameObject.SetActive (true);
 		}
 
 		if(notaCorrecta == 8){
@@ -68,7 +69,7 @@ public class CampoFuerza : MonoBehaviour {
 				escudo = false;
 				this.notaCorrecta = 0;
 				this.iEscudo = 0;
-				combo.transform.localPosition = new Vector2 (combo.transform.localPosition.x, -84.3f);
+				combo.transform.localPosition = new Vector2 (combo.transform.localPosition.x, -28.7f);
 			}
 		}
 
@@ -121,7 +122,7 @@ public class CampoFuerza : MonoBehaviour {
 		if(!escudo){
 			this.vidas--;
 			this.notaCorrecta = 0;
-			combo.transform.localPosition = new Vector2 (combo.transform.localPosition.x,-84.3f);
+			combo.transform.localPosition = new Vector2 (combo.transform.localPosition.x,-28.7f);
 		} else {
 			iEscudo++;
 		}
@@ -135,7 +136,7 @@ public class CampoFuerza : MonoBehaviour {
 		this.GetComponent<AudioSource>().PlayOneShot(this.audioNotas[this.conteoNotas]);
 		this.conteoNotas++;
 		this.notaCorrecta++;
-		this.y = combo.transform.localPosition.y + 5.05f ;
+		this.y = combo.transform.localPosition.y + 5.35f ;
 		combo.transform.localPosition = new Vector2 (combo.transform.localPosition.x,y);
 		Destroy(coll.gameObject);
 		notasDentro[0] = notasDentro[1];
@@ -149,7 +150,7 @@ public class CampoFuerza : MonoBehaviour {
 		if (!escudo) {
 			this.vidas--;
 			this.notaCorrecta = 0;
-			combo.transform.localPosition = new Vector2 (combo.transform.localPosition.x, -84.3f);
+			combo.transform.localPosition = new Vector2 (combo.transform.localPosition.x, -28.7f);
 		} else {
 			iEscudo++;
 		}

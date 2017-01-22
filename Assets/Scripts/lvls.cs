@@ -11,6 +11,7 @@ public class lvls : MonoBehaviour {
 	bool close = false;
 	// Use this for initialization
 	void Start () {
+		Time.timeScale = 1;
 		lvl = SceneManager.GetActiveScene ().buildIndex;
 	}
 	
@@ -31,5 +32,15 @@ public class lvls : MonoBehaviour {
 			tuto.gameObject.SetActive (false);
 		}
 
+	}
+
+	public void restart(){
+		tuto.gameObject.SetActive (false);
+		SceneManager.LoadScene (lvl);
+
+	}
+
+	public void menu(){
+		SceneManager.LoadScene (0);
 	}
 }
