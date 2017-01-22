@@ -19,6 +19,8 @@ public class CampoFuerza : MonoBehaviour {
 	int iEscudo;
 	float y;
 
+	private GameObject[] notasDentro;
+
 
 	// Use this for initialization
 	void Start () {
@@ -26,7 +28,7 @@ public class CampoFuerza : MonoBehaviour {
 	}
 
 	void Awake() {
-
+		notasDentro = new GameObject[2];
 		iEscudo = 0;
 		this.vidas = 300;
 		this.conteoNotas = 0;
@@ -72,30 +74,38 @@ public class CampoFuerza : MonoBehaviour {
 
 	}
 
+	void OnTriggerEnter2D (Collider2D coll) {
+		if(notasDentro[0] != null) {
+			notasDentro[1] = coll.gameObject;
+		} else {
+			notasDentro[0] = coll.gameObject;
+		}
+	}
+
 	void OnTriggerStay2D (Collider2D coll) {
 		int tipoNotaCol = coll.gameObject.GetComponent<Nota>().tipo;
-		if((Input.GetKey("f")) || (MidiMaster.GetKey(36) > 0))  {
+		if((Input.GetKeyDown("f")) || (MidiMaster.GetKeyDown(36)))  {
 			if(tipoNotaCol == 1){
 				teclaCorrecta(coll);
 			} else {
 				teclaIncorrecta(coll);
 			}
 		}
-		else if((Input.GetKey("g")) || (MidiMaster.GetKey(38) > 0))  {
+		else if((Input.GetKeyDown("g")) || (MidiMaster.GetKeyDown(38)))  {
 			if(tipoNotaCol == 2){
 				teclaCorrecta(coll);
 			} else {
 				teclaIncorrecta(coll);
 			}
 		}
-		else if((Input.GetKey("h")) || (MidiMaster.GetKey(40) > 0))  {
+		else if((Input.GetKeyDown("h")) || (MidiMaster.GetKeyDown(40)))  {
 			if(tipoNotaCol == 3){
 				teclaCorrecta(coll);
 			} else {
 				teclaIncorrecta(coll);
 			}
 		}
-		else if((Input.GetKey("j")) || (MidiMaster.GetKey(41) > 0))  {
+		else if((Input.GetKeyDown("j")) || (MidiMaster.GetKeyDown(41)))  {
 			if(tipoNotaCol == 4){
 				teclaCorrecta(coll);
 			} else {
@@ -116,6 +126,8 @@ public class CampoFuerza : MonoBehaviour {
 			iEscudo++;
 		}
 		Destroy(coll.gameObject);
+		notasDentro[0] = notasDentro[1];
+		notasDentro[1] = null;
 	}
 
 	void teclaCorrecta(Collider2D coll)
@@ -126,6 +138,8 @@ public class CampoFuerza : MonoBehaviour {
 		this.y = combo.transform.localPosition.y + 5.05f ;
 		combo.transform.localPosition = new Vector2 (combo.transform.localPosition.x,y);
 		Destroy(coll.gameObject);
+		notasDentro[0] = notasDentro[1];
+		notasDentro[1] = null;
 	}
 
 	void teclaIncorrecta(Collider2D coll) 
@@ -140,6 +154,8 @@ public class CampoFuerza : MonoBehaviour {
 			iEscudo++;
 		}
 		Destroy(coll.gameObject);
+		notasDentro[0] = notasDentro[1];
+		notasDentro[1] = null;
 	}
 	
 }
