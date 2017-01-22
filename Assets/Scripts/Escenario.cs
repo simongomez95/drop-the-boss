@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Escenario : MonoBehaviour {
 
-	public int vel;
+	public float vel;
 
 	// Use this for initialization
 	void Start () {
