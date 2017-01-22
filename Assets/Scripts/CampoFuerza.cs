@@ -136,8 +136,11 @@ public class CampoFuerza : MonoBehaviour {
 		this.GetComponent<AudioSource>().PlayOneShot(this.audioNotas[this.conteoNotas]);
 		this.conteoNotas++;
 		this.notaCorrecta++;
-		this.y = combo.transform.localPosition.y + 5.35f ;
-		combo.transform.localPosition = new Vector2 (combo.transform.localPosition.x,y);
+		this.y = combo.transform.localPosition.y + 5.35f;
+		if(!escudo){
+			combo.transform.localPosition = new Vector2 (combo.transform.localPosition.x,y);	
+		}
+
 		Destroy(coll.gameObject);
 		notasDentro[0] = notasDentro[1];
 		notasDentro[1] = null;

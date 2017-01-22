@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class lvls : MonoBehaviour {
@@ -21,7 +20,7 @@ public class lvls : MonoBehaviour {
 	}
 
 	public void nextLvl(){
-		EditorSceneManager.LoadScene (lvl+1);
+		SceneManager.LoadScene (lvl+1);
 	}
 
 	public void tutorial(){
