@@ -13,6 +13,8 @@ public class Disparo : MonoBehaviour {
     private Dictionary<double, int> notas;
     public static Disparo instancia;
 
+    public Animator animSilbon;
+
     void Awake(){
         instancia = this;
     }
@@ -64,11 +66,14 @@ public class Disparo : MonoBehaviour {
             if((this.timer - 0.05 < tiempoNota ) && (this.timer + 0.05 > tiempoNota)) {
                 lanzaNotas(this.notas[tiempoNota]);
                 listaTiempos.Remove(tiempoNota);
+            } else {
+                animSilbon.SetTrigger("yanotocando");
             }
         }
     }
 
     private void lanzaNotas(int tipoNota){
+        animSilbon.SetTrigger("tocando");
         GameObject instantiatedProjectile = Instantiate(nota,transform.position, transform.rotation ) as GameObject;
         Nota scriptNota = (Nota) instantiatedProjectile.GetComponent(typeof(Nota));
         scriptNota.setTipo(tipoNota);

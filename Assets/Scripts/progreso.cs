@@ -6,6 +6,7 @@ public class progreso : MonoBehaviour {
 
 	float tiempo;
 	public float vel;
+	public GameObject silbon;
 	// Use this for initialization
 	void Start () {
 		
@@ -19,6 +20,9 @@ public class progreso : MonoBehaviour {
 			transform.position = new Vector2 (transform.position.x + vel * Time.deltaTime, transform.position.y);
 		} else {
 			transform.position = new Vector2 (transform.position.x, transform.position.y);
+		}
+		if(tiempo > 32.2f) {
+			silbon.SetActive(true);
 		}
 
 	}
