@@ -16,10 +16,12 @@ public class CampoFuerza : MonoBehaviour {
 	public Image farol;
 	public Image combo;
 	bool escudo;
-	int iEscudo;
+	public int iEscudo;
 	float y;
 	public Image restar;
 	private GameObject[] notasDentro;
+
+	public GameObject lobito;
 
 
 	// Use this for initialization
@@ -62,14 +64,16 @@ public class CampoFuerza : MonoBehaviour {
 			restar.gameObject.SetActive (true);
 		}
 
-		if(notaCorrecta == 8){
+		if(notaCorrecta == 8 || escudo){
 			if (iEscudo < 2) {
 				escudo = true;
+				lobito.SetActive(true);
 			} else {
 				escudo = false;
 				this.notaCorrecta = 0;
 				this.iEscudo = 0;
 				combo.transform.localPosition = new Vector2 (combo.transform.localPosition.x, -28.7f);
+				lobito.SetActive(false);
 			}
 		}
 
