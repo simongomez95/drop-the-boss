@@ -21,7 +21,7 @@ public class animator : MonoBehaviour {
 			anim.SetTrigger ("flautaDown");
 			StartCoroutine(Esperar());
 			anim.SetTrigger ("corrida");
-		}
+			
 	}
 
 	IEnumerator Esperar() {
