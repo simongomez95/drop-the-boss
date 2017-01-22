@@ -14,7 +14,6 @@ public class progreso : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		tiempo += Time.deltaTime;
-		print (tiempo);
 		if (tiempo < 82.1f) {
 			transform.position = new Vector2 (transform.position.x + vel * Time.deltaTime, transform.position.y);
 		} else {

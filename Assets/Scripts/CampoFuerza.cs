@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using MidiJack;
 public class CampoFuerza : MonoBehaviour {
 
 	int conteoNotas;
@@ -17,6 +18,8 @@ public class CampoFuerza : MonoBehaviour {
 	bool escudo;
 	int iEscudo;
 	float y;
+
+
 	// Use this for initialization
 	void Start () {
 		
@@ -42,6 +45,13 @@ public class CampoFuerza : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		for(int i = 0; i < 100; i++) {
+			if(MidiMaster.GetKey(i) > 0) {
+			Debug.Log(MidiMaster.GetKey(i));
+			Debug.Log(i);
+		}		
+		}
+		
 		if (vidas > 0) {
 			farol.sprite = luz [vidas - 1];
 		} else {
@@ -64,28 +74,28 @@ public class CampoFuerza : MonoBehaviour {
 
 	void OnTriggerStay2D (Collider2D coll) {
 		int tipoNotaCol = coll.gameObject.GetComponent<Nota>().tipo;
-		if(Input.GetKey("f"))  {
+		if((Input.GetKey("f")) || (MidiMaster.GetKey(36) > 0))  {
 			if(tipoNotaCol == 1){
 				teclaCorrecta(coll);
 			} else {
 				teclaIncorrecta(coll);
 			}
 		}
-		else if(Input.GetKey("g"))  {
+		else if((Input.GetKey("g")) || (MidiMaster.GetKey(38) > 0))  {
 			if(tipoNotaCol == 2){
 				teclaCorrecta(coll);
 			} else {
 				teclaIncorrecta(coll);
 			}
 		}
-		else if(Input.GetKey("h"))  {
+		else if((Input.GetKey("h")) || (MidiMaster.GetKey(40) > 0))  {
 			if(tipoNotaCol == 3){
 				teclaCorrecta(coll);
 			} else {
 				teclaIncorrecta(coll);
 			}
 		}
-		else if(Input.GetKey("j"))  {
+		else if((Input.GetKey("j")) || (MidiMaster.GetKey(41) > 0))  {
 			if(tipoNotaCol == 4){
 				teclaCorrecta(coll);
 			} else {
@@ -99,7 +109,6 @@ public class CampoFuerza : MonoBehaviour {
 		this.GetComponent<AudioSource>().PlayOneShot(this.sonidoPeye);
 		this.conteoNotas++;
 		if(!escudo){
-			print ("entre2");
 			this.vidas--;
 			this.notaCorrecta = 0;
 			combo.transform.localPosition = new Vector2 (combo.transform.localPosition.x,-84.3f);
@@ -115,7 +124,6 @@ public class CampoFuerza : MonoBehaviour {
 		this.conteoNotas++;
 		this.notaCorrecta++;
 		this.y = combo.transform.localPosition.y + 5.05f ;
-		print (y);
 		combo.transform.localPosition = new Vector2 (combo.transform.localPosition.x,y);
 		Destroy(coll.gameObject);
 	}
