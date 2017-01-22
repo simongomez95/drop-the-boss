@@ -18,10 +18,8 @@ public class animator : MonoBehaviour {
 
 		if(Input.GetKeyUp("f") || Input.GetKeyUp("g") || Input.GetKeyUp("h") || Input.GetKeyUp("k")){
 			anim.SetInteger ("animacion",2);
-		}
-
-		if(!Input.anyKey){
 			anim.SetInteger ("animacion",0);
 		}
+			
 	}
 }
