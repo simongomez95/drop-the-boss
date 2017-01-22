@@ -11,7 +11,6 @@ public class animator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		if(Input.GetKeyDown("f") || Input.GetKeyDown("g") || Input.GetKeyDown("h") || Input.GetKeyDown("j")
 		){
 			anim.SetTrigger ("flautaUp");
