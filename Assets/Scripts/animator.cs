@@ -13,15 +13,20 @@ public class animator : MonoBehaviour {
 	void Update () {
 
 		if(Input.GetKeyDown("f") || Input.GetKeyDown("g") || Input.GetKeyDown("h") || Input.GetKeyDown("j")){
-			anim.SetInteger ("animacion",1);	
+			anim.SetTrigger ("flautaUp");
 		}
 
-		if(Input.GetKeyUp("f") || Input.GetKeyUp("g") || Input.GetKeyUp("h") || Input.GetKeyUp("k")){
-			anim.SetInteger ("animacion",2);
-		}
-
-		if(!Input.anyKey){
-			anim.SetInteger ("animacion",0);
+		if(Input.GetKeyUp("f") || Input.GetKeyUp("g") || Input.GetKeyUp("h") || Input.GetKeyUp("j")){
+			StartCoroutine(Esperar());
+			anim.SetTrigger ("flautaDown");
+			StartCoroutine(Esperar());
+			anim.SetTrigger ("corrida");
 		}
 	}
+
+	IEnumerator Esperar() {
+        print(Time.time);
+        yield return new WaitForSeconds(0.5f);
+        print(Time.time);
+    }
 }
