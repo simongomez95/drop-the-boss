@@ -25,7 +25,7 @@ public class CampoFuerza : MonoBehaviour {
 	void Awake() {
 
 		iEscudo = 0;
-		this.vidas = 3;
+		this.vidas = 300;
 		this.conteoNotas = 0;
 		this.audioNotas = new AudioClip[32];
 		this.escudo = false;
