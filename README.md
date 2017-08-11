@@ -1,4 +1,4 @@
-# drop-the-boss
+# El Silbón
 
 A rhyhthm game that can be played with a MIDI keyboard. 
 
